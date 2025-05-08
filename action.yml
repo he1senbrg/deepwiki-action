@@ -35,17 +35,20 @@ runs:
         
         echo "Generated doc files"
         ls /tmp/deepwiki-md/out
+      shell: bash
 
     - name: Clean docs directory
       run: |
         echo "Cleaning docs/ directory"
         rm -rf docs
         mkdir docs
+      shell: bash
 
     - name: Copy new docs into repo
       run: |
         echo "Copying new docs into docs/ directory"
         cp -r /tmp/deepwiki-md/out/* docs/
+      shell: bash
 
     - name: Commit and push docs
       run: |
@@ -55,3 +58,4 @@ runs:
         git add docs/
         git commit -m "Updated DeepWiki docs" || echo "No changes to commit"
         git push
+      shell: bash
